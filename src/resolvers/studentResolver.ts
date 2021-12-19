@@ -6,6 +6,6 @@ export class StudentResolver
     @Query(() => String)
     hello()
     {
-        return "Hello Student";
+      return "Hello Student";
     }
 }
