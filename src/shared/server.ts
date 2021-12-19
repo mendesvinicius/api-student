@@ -2,7 +2,7 @@ import "reflect-metadata";
 import { createConnection } from "typeorm";
 import { ApolloServer } from "apollo-server";
 import { buildSchema } from "type-graphql";
-import { StudentResolver } from "./resolvers/studentResolver";
+import { StudentResolver } from "../modules/student/resolvers/studentResolver";
 
 async function runServer() 
 {
