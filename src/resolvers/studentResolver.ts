@@ -1,7 +1,6 @@
 import { Resolver, Arg, Query, Mutation } from "type-graphql";
 import { Student } from "../models/student";
-import { CreateStudentInput } from "../inputs/createStudentInput";
-import { ReadStudentInput } from "../inputs/readStudentInput";
+import { CreateStudentInput, ReadStudentInput, UpdateStudentInput } from "../inputs";
 
 @Resolver()
 export class StudentResolver
@@ -61,5 +60,49 @@ export class StudentResolver
     await student.save();
     return student;
   }
+  
+  @Mutation(() => Student)
+  async updateStudent(
+    @Arg("id") id: string,
+    @Arg("data") data: UpdateStudentInput
+  ): Promise<Student>
+  {
+    const student = await Student.findOne({
+      where: 
+      {
+        id
+      }
+    });
+
+    if(!student)
+    {
+      throw new Error(`The user with id: ${id} does not exist!`);
+    }
+
+    Object.assign(student, data);
+    await student.save();
+    return student;
+  }
+
+  @Mutation(() => Boolean)
+  async deleteStudent(
+    @Arg("id") id: string
+    ): Promise<Boolean>
+    {
+      const student = await Student.findOne({
+        where:
+        {
+          id
+        }
+      });
+
+      if (!student)
+      {
+        throw new Error(`The user with id: ${id} does not exist!`);
+      }
+      
+      await student.remove();
+      return true;
+    }
   //#endregion
 }
