@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/validator": "^13.7.0",
     "nodemon": "^2.0.15",
     "ts-node": "^10.4.0",
     "ts-node-dev": "^1.1.8",
