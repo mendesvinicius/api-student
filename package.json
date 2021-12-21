@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -w src --ext ts --exec ts-node src/shared/server.ts",
-    "start-docker": "npm install && nodemon -w src --ext ts --exec ts-node src/shared/server.ts",
+    "start:dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/server.ts",
+    "build": "rimraf .build && tsc",
+    "start": "npm run build && node src/shared/server.js",
+    "prestart": "typeorm migration:run",
     "test": "echo \"Error: no test specified\" && exit 1",
     "typeorm": "ts-node ./node_modules/typeorm/cli.js"
   },
@@ -15,6 +17,7 @@
   "devDependencies": {
     "nodemon": "^2.0.15",
     "ts-node": "^10.4.0",
+    "ts-node-dev": "^1.1.8",
     "typescript": "^4.5.4"
   },
   "dependencies": {
