@@ -3,14 +3,15 @@ version: '3.1'
 services:
 
   api:
-    container_name: api_graph
+    container_name: api_descomplica
     build: .
+    entrypoint: .docker/entrypoint.sh
     ports:
       - "${PORT_API}:${PORT_API}"
     volumes:
       - .:/home/api
   db:
-    container_name: graph_db
+    container_name: db_descomplica
     image: postgres
     environment:
       POSTGRES_DB: ${DB_NAME}

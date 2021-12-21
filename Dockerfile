@@ -1,5 +1,7 @@
-FROM node:alpine
+FROM node:12
 
 WORKDIR /home/api
 
-CMD npm run start-docker
+COPY . .
+
+EXPOSE 8000

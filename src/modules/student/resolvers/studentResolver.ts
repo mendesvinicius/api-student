@@ -5,12 +5,11 @@ import { CreateStudentInput, ReadStudentInput, UpdateStudentInput } from "../inp
 @Resolver()
 export class StudentResolver
 {
-
   //#region Queries
   @Query(() => [Student])
     students(
     @Arg("student", () => ReadStudentInput, { nullable: true })
-    students: ReadStudentInput
+    students?: ReadStudentInput
   )
   {
     if (!students) 
