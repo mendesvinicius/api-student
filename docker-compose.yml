@@ -7,7 +7,7 @@ services:
     build: .
     entrypoint: .docker/entrypoint.sh
     ports:
-      - "${PORT_API}:${PORT_API}"
+      - "${PORT}:${PORT}"
     volumes:
       - .:/home/api
   db:

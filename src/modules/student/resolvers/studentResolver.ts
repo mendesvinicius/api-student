@@ -7,14 +7,17 @@ export class StudentResolver
 {
   //#region Queries
   @Query(() => [Student])
-    students(
+    readStudents(
     @Arg("student", () => ReadStudentInput, { nullable: true })
     students?: ReadStudentInput
   )
   {
     if (!students) 
     {
-      return Student.find();
+      return Student.find({
+        skip: 0,
+        take: 10
+      });
     } 
     else 
     {
@@ -26,7 +29,9 @@ export class StudentResolver
             {name},
             {cpf},
             {email} 
-          ]
+          ],
+          skip: 0,
+          take: 10
         });
     }
   }

@@ -11,7 +11,7 @@ async function runServer()
     resolvers: [StudentResolver],
   });
   const server = new ApolloServer({ schema });
-  await server.listen(8000);
+  await server.listen(process.env.PORT || 8000);
 
   console.log("Server started at port ::8000");
 }
