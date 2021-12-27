@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
 
-  api:
+  webapp:
     container_name: api_descomplica
     build: .
     entrypoint: .docker/entrypoint.sh
@@ -10,6 +10,9 @@ services:
       - "${PORT}:${PORT}"
     volumes:
       - .:/home/api
+    networks:
+      - api
+    
   db:
     container_name: db_descomplica
     image: postgres
@@ -19,3 +22,20 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
       - "${DB_PORT}:${DB_PORT}"
+    networks:
+      - api
+
+  proxy:
+    container_name: nginx
+    image: nginx
+    ports:
+      - 80:${NGINX_PORT}
+    depends_on:
+      - webapp
+    networks:
+      - api
+
+networks:
+  api:
+    driver: bridge
+  
