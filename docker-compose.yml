@@ -2,16 +2,14 @@ version: '3.1'
 
 services:
 
-  webapp:
+  api_desc:
     container_name: api_descomplica
     build: .
     entrypoint: .docker/entrypoint.sh
-    ports:
-      - "${PORT}:${PORT}"
     volumes:
       - .:/home/api
     networks:
-      - api
+      - net_api
     
   db:
     container_name: db_descomplica
@@ -23,19 +21,19 @@ services:
     ports:
       - "${DB_PORT}:${DB_PORT}"
     networks:
-      - api
+      - net_api
 
   proxy:
     container_name: nginx
-    image: nginx
+    build: ./nginx
     ports:
       - 80:${NGINX_PORT}
     depends_on:
-      - webapp
+      - api_desc
     networks:
-      - api
+      - net_api
 
 networks:
-  api:
+  net_api:
     driver: bridge
   

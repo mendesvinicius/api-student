@@ -1,7 +1,5 @@
-FROM node:12
+FROM node:12-slim
 
 WORKDIR /home/api
 
-COPY . .
-
-EXPOSE 8000
+COPY . package.json
