@@ -11,7 +11,7 @@ To use this project it is necessary to perform the following steps:
 
 #### 1º Clone the repository on your machine
 ```bash
-git clone https://github.com/ViniDevs/front-descomplica.git
+git clone https://github.com/ViniDevs/api-descomplica.git
 ```
 
 #### 2º Replace .env.example for .env:
