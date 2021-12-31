@@ -1,5 +1,11 @@
-FROM node:12-slim
+FROM node:12
 
-WORKDIR /home/api
+WORKDIR /usr/src/app
 
-COPY . package.json
+COPY . ./
+
+RUN npm install
+
+RUN npm run build
+
+CMD [ "npm", "start" ]

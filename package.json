@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/server.ts",
     "build": "rimraf .build && tsc",
-    "start": "npm run build && node src/shared/server.js",
+    "start": "npm run build && node dist/shared/server.js",
     "prestart": "./node_modules/.bin/typeorm migration:run",
     "test": "echo \"Error: no test specified\" && exit 1",
     "typeorm": "ts-node ./node_modules/typeorm/cli.js",
