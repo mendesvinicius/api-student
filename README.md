@@ -14,43 +14,19 @@ To use this project it is necessary to perform the following steps:
 git clone https://github.com/ViniDevs/api-descomplica.git
 ```
 
-#### 2º Replace .env.example for .env:
-
-###### Inside the project folder, change the .env.example file to .env
-
-
-#### 3º Mount the image and run
+#### 2º Mount the image and run
 ```bash
 docker-compose build
 ```
 
-
-#### 4º Run the docker-compose
+#### 3º Run the docker-compose
 ```bash
 docker-compose up
 ```
 
-
-#### 5º Access the application
+#### 4º Access the application
 ```console
 http://localhost:80
-```
-
-
-## --Without Docker 📦
-
-Install node https://nodejs.org/en/
-
-With the node already installed, go to the project root folder and execute the following commands:
-
-### 1º Install dependencies
-```bash
-yarn install
-```
-
-### 2º Run the application
-```bash
-yarn start
 ```
 
 ## License
