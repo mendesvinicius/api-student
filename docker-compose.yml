@@ -4,7 +4,9 @@ services:
 
   api_desc:
     container_name: api_descomplica
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     entrypoint: .docker/entrypoint.sh
     volumes:
       - .:/home/api
