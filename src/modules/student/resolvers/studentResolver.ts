@@ -13,7 +13,7 @@ export class StudentResolver {
     readStudents(
         @Arg("student", () => ReadStudentInput, { nullable: true })
         students?: ReadStudentInput
-    ) {
+    ): Promise<Student[]> {
         if (!students) {
             return Student.find({
                 skip: 0,
