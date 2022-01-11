@@ -14,12 +14,7 @@ export class StudentResolver {
         @Arg("student", () => ReadStudentInput, { nullable: true })
         students?: ReadStudentInput
     ): Promise<Student[]> {
-        if (!students) {
-            return Student.find({
-                skip: 0,
-                take: 10,
-            });
-        } else {
+        if (students) {
             const { id, name, cpf, email } = students;
 
             return Student.find({
@@ -28,6 +23,10 @@ export class StudentResolver {
                 take: 10,
             });
         }
+        return Student.find({
+            skip: 0,
+            take: 10,
+        });
     }
     //#endregion
 
