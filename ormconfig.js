@@ -8,7 +8,7 @@ const prodConfig = {
     ssl: {
         rejectUnauthorized: false
     },
-    entities: ["./dist/modules/**/models/*.js"],
+    entities: ["./dist/domain/**/entity/*.js"],
     migrations: ["./dist/shared/migrations/*.js"],
     synchronize: true,
     cli: {
@@ -23,7 +23,7 @@ const devConfig = {
     username: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    entities: ["./src/modules/**/models/*.ts"],
+    entities: ["./src/domain/**/entity/*.ts"],
     migrations: ["./src/shared/migrations/*.ts"],
     synchronize: true,
     cli: {

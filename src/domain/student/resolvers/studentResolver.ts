@@ -1,5 +1,5 @@
 import { Resolver, Arg, Query, Mutation } from "type-graphql";
-import { Student } from "../models/student";
+import { Student } from "../entity/student";
 import {
     CreateStudentInput,
     ReadStudentInput,
@@ -19,14 +19,9 @@ export class StudentResolver {
 
             return Student.find({
                 where: [{ id }, { name }, { cpf }, { email }],
-                skip: 0,
-                take: 10,
             });
         }
-        return Student.find({
-            skip: 0,
-            take: 10,
-        });
+        return Student.find();
     }
     //#endregion
 
